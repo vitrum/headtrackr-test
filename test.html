@@ -1,0 +1,160 @@
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>facetracking</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				margin-left: 10%;
+				margin-right: 10%;
+				margin-top: 5%;
+				width: 40%;
+				overflow: hidden;
+				font-family: "Helvetica", Arial, Serif;
+				position: relative;
+			}
+			img {width: 640px; height: 480px; }
+			img.img15 {display: block;}
+		</style>
+
+	</head>
+	<body>
+		<script src="headtrackr.js"></script>
+		
+		<canvas id="compare" width="320" height="240" style="display:none"></canvas>
+		<video id="vid" autoplay loop width="320" height="240"  style="display:block"></video>
+		<canvas id="overlay" width="320" height="240"  style="display:none"></canvas>
+		<canvas id="debug" width="320" height="240"  style="display:none"></canvas>
+		<!--
+		<p id='gUMMessage'></p>
+		<p>Status : <span id='headtrackerMessage'></span></p>
+		<p><input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
+		<br/><br/>
+		<input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>Show probability-map</p>
+	-->
+		<div id="imagebox">
+			<!--<img class="img1" src='imgtest/2-.JPG' />
+			<img class="img2" src='imgtest/3-.JPG' />
+			<img class="img3" src='imgtest/4-.JPG' />
+			<img class="img4" src='imgtest/5-.JPG' />
+			<img class="img5" src='imgtest/6-.JPG' />
+			<img class="img6" src='imgtest/7-.JPG' />
+			<img class="img7" src='imgtest/8-.JPG' />
+			<img class="img8" src='imgtest/9-.JPG' />
+			<img class="img9" src='imgtest/10-.JPG' />
+			<img class="img10" src='imgtest/11-.JPG' />
+			<img class="img11" src='imgtest/12-.JPG' />
+			<img class="img12" src='imgtest/13-.JPG' />
+			<img class="img13" src='imgtest/14-.JPG' />
+			<img class="img14" src='imgtest/15-.JPG' />
+			<img class="img15" src='imgtest/16-.JPG' />
+			<img class="img16" src='imgtest/17-.JPG' />
+			<img class="img17" src='imgtest/18-.JPG' />
+			<img class="img18" src='imgtest/19-.JPG' />
+			<img class="img19" src='imgtest/20-.JPG' />
+			<img class="img20" src='imgtest/21-.JPG' />
+			<img class="img21" src='imgtest/22-.JPG' />
+			<img class="img22" src='imgtest/23-.JPG' />
+			<img class="img23" src='imgtest/24-.JPG' />
+			<img class="img24" src='imgtest/25-.JPG' />
+			<img class="img25" src='imgtest/26-.JPG' />
+			<img class="img26" src='imgtest/27-.JPG' />
+			<img class="img27" src='imgtest/28-.JPG' />
+			<img class="img28" src='imgtest/29-.JPG' />
+			<img class="img29" src='imgtest/30-.JPG' />
+			<img class="img30" src='imgtest/31-.JPG' />
+-->
+		</div>
+		<p>Status : <span id='headtrackerMessage'></span></p>
+		<p id='gUMMessage'></p>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		  // set up video and canvas elements needed
+		
+			var videoInput = document.getElementById('vid');
+			var canvasInput = document.getElementById('compare');
+			var canvasOverlay = document.getElementById('overlay')
+			var debugOverlay = document.getElementById('debug');
+			var overlayContext = canvasOverlay.getContext('2d');
+			canvasOverlay.style.position = "absolute";
+			canvasOverlay.style.top = '0px';
+			canvasOverlay.style.zIndex = '100001';
+			canvasOverlay.style.display = 'block';
+			debugOverlay.style.position = "absolute";
+			debugOverlay.style.top = '0px';
+			debugOverlay.style.zIndex = '100002';
+			debugOverlay.style.display = 'none';
+			
+			// add some custom messaging
+			
+			statusMessages = {
+				"whitebalance" : "checking for stability of camera whitebalance",
+				"detecting" : "Detecting face",
+				"hints" : "Hmm. Detecting the face is taking a long time",
+				"redetecting" : "Lost track of face, redetecting",
+				"lost" : "Lost track of face",
+				"found" : "Tracking face"
+			};
+			
+			supportMessages = {
+				"no getUserMedia" : "Unfortunately, <a href='http://dev.w3.org/2011/webrtc/editor/getusermedia.html'>getUserMedia</a> is not supported in your browser. Try <a href='http://www.opera.com/browser/'>downloading Opera 12</a> or <a href='http://caniuse.com/stream'>another browser that supports getUserMedia</a>. Now using fallback video for facedetection.",
+				"no camera" : "No camera found. Using fallback video for facedetection."
+			};
+			
+			document.addEventListener("headtrackrStatus", function(event) {
+				if (event.status in supportMessages) {
+					var messagep = document.getElementById('gUMMessage');
+					messagep.innerHTML = supportMessages[event.status];
+				} else if (event.status in statusMessages) {
+					var messagep = document.getElementById('headtrackerMessage');
+					messagep.innerHTML = statusMessages[event.status];
+				}
+			}, true);
+			
+			// the face tracking setup
+			
+			var htracker = new headtrackr.Tracker({altVideo : {ogv : "./media/capture5.ogv", mp4 : "./media/capture5.mp4"}, calcAngles : true, ui : false, headPosition : false, debug : debugOverlay});
+			htracker.init(videoInput, canvasInput);
+			htracker.start();
+
+			// for each facetracking event received draw rectangle around tracked face on canvas
+			
+			document.addEventListener("facetrackingEvent", function( event ) {
+				// clear canvas
+				overlayContext.clearRect(0,0,320,240);
+				// once we have stable tracking, draw rectangle
+				if (event.detection == "CS") {
+					overlayContext.translate(event.x, event.y)
+					overlayContext.rotate(event.angle-(Math.PI/2));
+					overlayContext.strokeStyle = "#00CC00";
+					overlayContext.strokeRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width, event.height);
+					overlayContext.rotate((Math.PI/2)-event.angle);
+					overlayContext.translate(-event.x, -event.y);
+					var messagep = document.getElementById('gUMMessage');
+					var picChangeNo = 30;
+					var imgBox = document.getElementById('imagebox');
+					var imgName = '.img' + (Math.floor((event.x/320)*picChangeNo));
+					messagep.innerHTML = "evnet.x=" + event.x +", Percentage = " + (event.x/320) + "% ,\n <br/>We can show pic No." + Math.floor((event.x/320)*picChangeNo) + "<br/> imgName=" +imgName;
+					imgBox.innerHTML = "<img src='imgtest/" + (Math.floor((event.x/320)*picChangeNo)) + "-.JPG' />"
+					//var imgName = (Math.floor((event.x/320)*picChangeNo));
+					//$('#imagebox img').hide();
+					//$(imgName).show();
+
+				}
+			});
+			
+			// turn off or on the canvas showing probability
+			function showProbabilityCanvas() {
+				var debugCanvas = document.getElementById('debug');
+				if (debugCanvas.style.display == 'none') {
+					debugCanvas.style.display = 'block';
+				} else {
+					debugCanvas.style.display = 'none';
+				}
+			}
+		</script>
+	</body>
+</html>
