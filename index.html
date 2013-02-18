@@ -1,0 +1,139 @@
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>responsive with facetracking</title>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				margin-left: 10%;
+				margin-right: 10%;
+				margin-top: 5%;
+				width: 80%;
+				font-family: "Helvetica", Arial, Serif;
+				position: relative;
+				font-size: 20px;
+			}
+
+		</style>
+
+	</head>
+	<body>
+		<script src="headtrackr.js"></script>
+
+		<canvas id="compare" width="320" height="240" style="display:none"></canvas>
+		<video id="vid" autoplay loop width="320" height="240"  style="display:none"></video>
+		<canvas id="overlay" width="320" height="240"  style="display:none"></canvas>
+		<canvas id="debug" width="320" height="240"  style="display:none"></canvas>
+<!--
+		<p id='gUMMessage'></p>
+		<p>Status : <span id='headtrackerMessage'></span></p>
+		<p><input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
+		<br/><br/>
+		<input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>Show probability-map</p>
+	-->
+		<p>Status : <span id='headtrackerMessage'></span></p>
+		<p id='gUMMessage'></p>
+		<div class="main">
+			<div class="cms-content">
+
+			<p>Neiman Marcus尼曼，为全世界提供品质顶尖的商品！</p>
+			<p>一直以来，Neiman Marcus尼曼提供最具特色的高品质商品，人们总能将它与顶尖设计师、时尚优雅、奢华家居与无与伦比的美妙礼物联系在一起。我们在环境最优美的商店里售卖世界上顶尖的商品，我们的合作伙伴在时尚行业中都具有相当丰富的经验。我们将持续致力于顶级的客户服务，一如创始人Herbert Marcus，Carrie Marcus Neiman与她的丈夫Al于1907年在美国达拉斯开设的第一家店所秉持的优质服务。</p>
+			<p>1907年，Herbert Marcus先生和他的妹妹Carrie Marcus Neiman以及其丈夫A.L. Neiman在德克萨斯州达拉斯创办了第一家商店。这家店旨在为整个达拉斯地区提供时尚服饰。正如Neiman Marcus尼曼第一则广告所承诺的：“（我们的商品）比南部任何一家商店种类更丰富款式更独特。”从此，Neiman Marcus尼曼便象征着时尚、品质、超凡的价值以及优质的服务：</p>
+			<blockquote>
+			<div class="figure"><img src="http://media.neimanmarcus.com.cn/media/wysiwyg//cmsimages/assistance_about_dallas.jpg" alt="The Dallas Morning News 《Dallas晨报》，1907年9月1日Neiman Marcus尼曼刊登的第一则广告"></div>
+			<cite>The Dallas Morning News 《Dallas晨报》，1907年9月1日<br> Neiman Marcus尼曼刊登的第一则广告</cite>
+			<p>一家优秀商店的经营目标应该是：永远处在领先地位。本着这一宗旨，Neiman Marcus尼曼逐渐稳固其高级时尚王国，那些从未被认为能在达拉斯有所市场的品牌也因此受到了广泛拥戴。当Neiman Marcus尼曼推行定价销售后，达拉斯购物数量远远超过了市场原有销售量，我们对中档价格的商品同对待进口商品一样都投入了非常多的精力，用尽可能低的价格来获取与高级时装同等的质量和工艺。</p>
+			</blockquote>
+			<p>早在1905年，Marcus先生与Neiman家族从Dallas来到Atlanta，并开展了一项创新销售推广，收获了巨大的成功。两年后他们收到了两份收购提案，他们接受了其中一个：以2.5万美元回到达拉斯，开创属于自己的品牌－Neiman Marcus尼曼。 而另一个提案则是Missouri新型瓶装饮料－可口可乐的特许经营权。</p>
+			<p>在接下来的6年中，Marcus家族一直掌管着Neiman Marcus尼曼的经营，并秉承Herbert Marcus的原则：“如果不能为顾客提供优质的购物，就不会有Neiman Marcus尼曼的成功。”以及“我们销售的是舒适的购物体验，而不仅是商品。”最终，Herbert Marcus先生的儿子们陆续加入了家族企业的管理，Stanley和Edward于1926年加入公司；小赫伯特（Herbert, Jr.）,于1932年加入；Lawrence于1944年加入。在第二次世界大战期间，Stanley Marcus成为战时生产局的服装生产线主席，而其他人也同时都加入了军队。</p>
+			<p>Neiman Marcus尼曼就像一名法国口音的德州人。试想，当纽约一半以上的商店被全球顶级时尚品牌迅速占据的同时，Neiman Marcus尼曼却在2000英里以外为您提供着简单的时尚贵族生活方式。在此之后的26年中，这个优秀的品牌获得了整个美国的拥戴与尊重，并被时尚杂志《Vogue》怀疑这里是否藏匿着天才。（1953年,11月15日 被《Vogue》时尚杂志刊登标题为：美国本土时尚“Continental Chic in Texas”）</p>
+			<p>1950年12月11日，Herbert Marcus离世，Neiman Marcus尼曼董事会决定推选Carrie Neiman为董事会主席，Stanley Marcus为总裁兼首席执行官， Edward Marcus,为执行副总裁。随着Moira Cullen，Neiman Marcus尼曼第一个买手的到来，Carrie Neiman以其固有的个人风格成为Neiman Marcus尼曼的代名词。</p>
+			<div class="have_figure">
+			<div class="figure"><img src="http://media.neimanmarcus.com.cn/media/wysiwyg//cmsimages/assistance_about_stanley_coco.jpg" alt="Stanley Marcus（右一） 与 Coco Chanel （左二）合影"> <span class="figcaption">Stanley Marcus（右一）与<br> Coco Chanel （左二）合影</span></div>
+			<p>在总裁兼首席执行官Stanley Marcus的领导下，Neiman Marcus尼曼展开了第一次扩张计划，在全国发行广告、策划营销推广并推动了国际奢侈品销售市场。Stanley Marcus后被亲切地称为“Mr.Stanley”，在其任职期间，与顾客，供应商和员工们都建立了亲密的关系，直到1969年，Neiman Marcus尼曼公司被Carter Hawley Hale Stores, Inc.收购，在此之后他被任命为执行副总裁，掌管专卖店的经营。Marcus先生对于商品质量和优质服务严格要求从不妥协，为Neiman Marcus尼曼赢得了国际声誉，并同时担任公司名誉主席，直到2002年1月去世，享年96岁。</p>
+			</div>
+			<p>如今，具有百年历史的Neiman Marcus尼曼是在美国拥有超过500万平方总面积的精品百货商店，成为全国领先的专业零售商之一，其中包括40家Neiman Marcus尼曼百货商店，2家Bergdorf Goodman精品商店和26家季末商品促销店。Neiman Marcus尼曼旗下的在线奢侈品购物网站还为顾客提供女士，男士和家居类顶尖奢侈品牌。另外，公司的直销业务和产品目录册邮购业务也同时迅速发展。</p>
+			<p>Neiman Marcus尼曼集团始终以客户为本，创始人Herbert Marcus，Carrie Marcus Neiman和Al Neiman自1907年成立Neiman Marcus尼曼以来，便遵循着: To exceed the customer’s expectations “超越客户期望”这一服务理念，并致力于不断的创新和改革，Neiman Marcus尼曼拥有出色的服务和采购管理层，可以为客户在任何地点任何场所甚至任何时间提供最优质的服务。</p>
+			<p>更多关于Neiman Marcus尼曼，请访问<a href="http://www.neimanmarcusgroup.com/" target="_blank">www.neimanmarcusgroup.com</a></p>
+			</div>
+
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		  // set up video and canvas elements needed
+		
+			var videoInput = document.getElementById('vid');
+			var canvasInput = document.getElementById('compare');
+			var canvasOverlay = document.getElementById('overlay')
+			var debugOverlay = document.getElementById('debug');
+			var overlayContext = canvasOverlay.getContext('2d');
+
+			// add some custom messaging
+			
+			statusMessages = {
+				"whitebalance" : "checking for stability of camera whitebalance",
+				"detecting" : "Detecting face",
+				"hints" : "Hmm. Detecting the face is taking a long time",
+				"redetecting" : "Lost track of face, redetecting",
+				"lost" : "Lost track of face",
+				"found" : "Tracking face"
+			};
+			
+			supportMessages = {
+				"no getUserMedia" : "Unfortunately, <a href='http://dev.w3.org/2011/webrtc/editor/getusermedia.html'>getUserMedia</a> is not supported in your browser. Try <a href='http://www.opera.com/browser/'>downloading Opera 12</a> or <a href='http://caniuse.com/stream'>another browser that supports getUserMedia</a>. Now using fallback video for facedetection.",
+				"no camera" : "No camera found. Using fallback video for facedetection."
+			};
+			
+			document.addEventListener("headtrackrStatus", function(event) {
+				if (event.status in supportMessages) {
+					var messagep = document.getElementById('gUMMessage');
+					messagep.innerHTML = supportMessages[event.status];
+				} else if (event.status in statusMessages) {
+					var messagep = document.getElementById('headtrackerMessage');
+					messagep.innerHTML = statusMessages[event.status];
+				}
+			}, true);
+			
+			// the face tracking setup
+			
+			var htracker = new headtrackr.Tracker({altVideo : {ogv : "./media/capture5.ogv", mp4 : "./media/capture5.mp4"}, calcAngles : true, ui : false, headPosition : false, debug : debugOverlay});
+			htracker.init(videoInput, canvasInput);
+			htracker.start();
+
+			// for each facetracking event received draw rectangle around tracked face on canvas
+			
+			var maxFoneSize = 36;
+			var tempFS = maxFoneSize/3;
+
+			document.addEventListener("facetrackingEvent", function( event ) {
+				// clear canvas
+				//overlayContext.clearRect(0,0,320,240);
+				// once we have stable tracking, draw rectangle
+				if (event.detection == "CS") {
+
+					//overlayContext.strokeRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width, event.height);
+					var messagep = document.getElementById('gUMMessage');
+					
+					
+					var newFS =  39 - Math.floor((event.width)*36/240) ;
+					messagep.innerHTML = "event.width=" +event.width  + "new font size=" + newFS;
+
+					//messagep.innerHTML = "evnet.x=" + event.x +", Percentage = " + (event.x/320) + "% ,\n <br/>We can show pic No." + Math.floor((event.x/320)*picChangeNo) + "<br/> imgName=" +imgName;
+					//imgBox.innerHTML = "<img src='imgtest/" + (Math.floor((event.x/320)*picChangeNo)) + "-.JPG' />"
+					if (Math.abs(newFS-tempFS) > 1 ){
+						$(".main").css({ "font-size": newFS});
+						tempFS = newFS;
+					}
+
+					
+
+				}
+			});
+			
+
+		</script>
+	</body>
+</html>
