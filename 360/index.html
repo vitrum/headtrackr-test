@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
+	<title>360</title>
+	<link rel="stylesheet" href="css/reset.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="css/threesixty.css" media="screen" type="text/css" />
+</head>
+<body>
+	<div id="threesixty">
+		<div id="spinner">
+			<span>0%</span>
+		</div>
+		<ol id="threesixty_images"></ol>
+	</div>
+			<canvas id="compare" width="320" height="240" style="display:none"></canvas>
+		<video id="vid" autoplay loop width="320" height="240"  style="display:none"></video>
+		<canvas id="overlay" width="320" height="240"  style="display:none"></canvas>
+		<canvas id="debug" width="320" height="240"  style="display:none"></canvas>
+		<p>Status : <span id='headtrackerMessage'></span></p>
+		<p id='gUMMessage'></p>
+	<script src="js/heartcode-canvasloader-min.js"></script>
+	<script src="js/jquery-1.7.min.js"></script>
+	<script src="js/threesixty.js"></script>
+	<script src="../headtrackr.js"></script>
+</body>
+</html>
