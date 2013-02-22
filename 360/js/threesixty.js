@@ -377,7 +377,7 @@ $(document).ready(function () {
 					//imgBox.innerHTML = "<img src='imgtest/" + (Math.floor((event.x/320)*picChangeNo)) + "-.JPG' />"
 					console.log("pointerEndPosX:"+pointerEndPosX +",pointerStartPosX:"+pointerStartPosX);
 
-					pointerEndPosX= event.x *2;
+					pointerEndPosX= event.x ;
 					if(monitorStartTime < new Date().getTime() - monitorInt) {
 						// Calculates the distance between the pointer starting and ending position during the last tracking time period
 						pointerDistance = pointerEndPosX - pointerStartPosX;
@@ -390,7 +390,7 @@ $(document).ready(function () {
 						// restarts counting the pointer tracking period
 						monitorStartTime = new Date().getTime();
 						// Stores the the pointer X position as the starting position (because we started a new tracking period)
-						pointerStartPosX = event.x *2;
+						pointerStartPosX = event.x ;
 					}
 					
 
