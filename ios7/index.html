@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
+    <title>iOS7 like</title>
+    <link rel="stylesheet" href="css/reset.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+  </head>
+  <body>
+    <div class="debuginfo">
+      <canvas id="compare" width="320" height="240" style="display:none"></canvas>
+      <video id="vid" autoplay loop width="320" height="240"  style="display:none"></video>
+      <canvas id="overlay" width="320" height="240"  style="display:none"></canvas>
+      <canvas id="debug" width="320" height="240"  style="display:none"></canvas>
+      <p>Status : <span id='headtrackerMessage'></span></p>
+      <p id='gUMMessage'></p>
+    </div>
+    <div class="tip"></div>
+    <div class="thephone">
+      <div id="spinner">
+        <span>0%</span>
+      </div>
+      <ol id="layout">
+        <li class="phone"></li>
+        <li class="screen"></li>
+        <li class="nav"></li>
+        <li class="apps"></li>
+        <li class=""></li>
+      </ol>
+    </div>
+    <ul id="load_images">
+    </ul>
+    <script src="js/heartcode-canvasloader-min.js"></script>
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/headtrackr.js"></script>
+    <script src="js/ios7bg.js"></script>
+  </body>
+</html>

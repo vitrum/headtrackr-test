@@ -1,0 +1,46 @@
+/*
+  Sets the style of the image slider wrapper <div> to be centered horizontally and vertically.
+  It also sets its default dimensions and the overflowing hidden (to fix the IE image positioning bug).
+*/
+#spinner {
+  position:absolute;
+	left:50%;
+	top:50%;
+	width:90px;
+	height:90px;
+	margin-left:-45px;
+	margin-top:-50px;
+	display:none;
+}
+/*
+	Sets the style of the percentage <span> of the preloader by setting its dimensions and centering it horizontally and vertically 
+*/
+#spinner span {
+	position:absolute;
+	top:50%;
+	width:100%;
+	color:#333;
+	font:0.8em Arial, Verdana, sans;
+	text-align:center;
+	line-height:0.6em;
+	margin-top:-0.3em;
+}
+.thephone { width: 420px; height: 850px; background: url("../images/phone.png") no-repeat;
+  margin: 20px auto 0; position: relative;
+}
+#layout { width: 320px; height: 568px; padding: 132px 0 0 51px; overflow: hidden;}
+.phone , .screen , .apps , .nav { position: absolute; width: 320px; height: 568px;}
+.phone { z-index: 1;}
+.screen { z-index: 10;background: url("../images/bg001.jpg") center center no-repeat; background-size: 440px 700px}
+.apps { z-index: 200;background: url("../images/apps.png") no-repeat;}
+.nav { z-index: 100;background: url("../images/navs.png") no-repeat;}
+
+#load_images { width: 10px; height: 10px; position: absolute; left: -9999em; overflow: hidden;}
+.debuginfo { position: fixed; top: 20px; padding-left: 40px;}
+
+
+/*body { background: url(http://images.apple.com/ios/ios7/design/images/design_layers.jpg) 50px center no-repeat; background-size: 300px 300px;}*/
+body { background: url("../images/body.jpg"); font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;}
+
+
+
