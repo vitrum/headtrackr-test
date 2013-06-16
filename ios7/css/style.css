@@ -36,11 +36,39 @@
 .nav { z-index: 100;background: url("../images/navs.png") no-repeat;}
 
 #load_images { width: 10px; height: 10px; position: absolute; left: -9999em; overflow: hidden;}
-.debuginfo { position: fixed; top: 20px; padding-left: 40px; color: #3c3c3c}
+.debuginfo { position: fixed; top: 100px; padding: 8px; color: #3c3c3c; width: 320px;right: 10px; background-color: #e3e3e3; height: 240px;-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
 
 
 /*body { background: url(http://images.apple.com/ios/ios7/design/images/design_layers.jpg) 50px center no-repeat; background-size: 300px 300px;}*/
 body { background: url("../images/body.jpg"); font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;}
 
-header a.button { position: fixed; right: 20px; top: 20px;}
+header a.button { position: fixed; right: 10px; top: 10px;}
 
+.hireme {
+	margin: 0;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	position: fixed;
+	position: fixed; bottom: 10px; right: 10px;
+	padding-left: 12px;
+	height: 32px;
+}
+.hireme a { 
+	background: url("http://help.linkedin.com/euf/assets/images/logos/LinkedIn_logo_white_92x22_v2.png") 0 6px  no-repeat;
+	display: block;
+	width: 54px;
+	height: 32px;
+	line-height: 32px;
+	padding: 4px 4px 4px 100px;
+	color: #fff;
+	overflow: hidden;
+}
