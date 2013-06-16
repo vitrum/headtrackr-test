@@ -36,8 +36,7 @@
 .nav { z-index: 100;background: url("../images/navs.png") no-repeat;}
 
 #load_images { width: 10px; height: 10px; position: absolute; left: -9999em; overflow: hidden;}
-
-
+.debuginfo { position: fixed; top: 20px;}
 
 
 

@@ -75,7 +75,7 @@ $(document).ready(function () {
 			newPositionX = Math.max(Math.min(0,newPositionX),-119);
 			newPositionY = Math.max(Math.min(0,newPositionY),-200);
 			bgBox.css("background-position",newPositionX+"px "+ newPositionY+"px")
-			messagep.innerHTML = "evnet.x=" + event.x + ",newPositionX=" + newPositionX;
+			//messagep.innerHTML = "evnet.x=" + event.x + ",newPositionX=" + newPositionX;
 
 			//imgBox.innerHTML = "<img src='imgtest/" + (Math.floor((event.x/320)*picChangeNo)) + "-.JPG' />"
 			//var imgName = (Math.floor((event.x/320)*picChangeNo));
