@@ -69,8 +69,8 @@ $(document).ready(function () {
 			var imgBox = document.getElementById('imagebox');
 			var imgName = '.img' + (Math.floor((event.x/320)*picChangeNo));
 			var bgBox = jQuery(".screen");
-			var newPositionX = -(Number(BgimgSize['width'])/2-160 + Number(event.x/2) - 130) ,
-			newPositionY =  (-40 - Number(event.y/3));
+			var newPositionX = -((Number(BgimgSize['width'])/2-160) - (Number(event.x) - 150))/2 ,
+			newPositionY =  -((Number(BgimgSize['height'])/2-220) - (Number(event.y) - 100))/2 ;
 
 			newPositionX = Math.max(Math.min(0,newPositionX),-119);
 			newPositionY = Math.max(Math.min(0,newPositionY),-200);
