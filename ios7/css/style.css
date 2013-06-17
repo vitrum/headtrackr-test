@@ -26,7 +26,7 @@
 	margin-top:-0.3em;
 }
 .thephone { width: 420px; height: 850px; background: url("../images/phone.png") no-repeat;
-  margin: 20px auto 0; position: relative;
+  margin: 20px auto 0 160px; position: relative;
 }
 #layout { width: 320px; height: 568px; padding: 132px 0 0 51px; overflow: hidden;}
 .phone , .screen , .apps , .nav { position: absolute; width: 320px; height: 568px;}
@@ -35,6 +35,15 @@
 .apps { z-index: 200;background: url("../images/apps.png") no-repeat;}
 .nav { z-index: 100;background: url("../images/navs.png") no-repeat;}
 
+.navbar { width: 560px; height: 140px; position: absolute; top: 360px; left: -70px;}
+.navbar a { width: 68px; height: 131px; float: left; text-indent: -9990em;opacity: 0.2;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+   }
+.navbar a:hover , .navbar a.hover { opacity: 0.9;}
+.navbar a.prev { background: url("../images/paddle_prev.png");}
+.navbar a.next { background: url("../images/paddle_next.png"); float: right;}
 #load_images { width: 10px; height: 10px; position: absolute; left: -9999em; overflow: hidden;}
 .debuginfo { position: fixed; top: 100px; padding: 8px; color: #3c3c3c; width: 320px;right: 10px; background-color: #e3e3e3; height: 240px;-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -44,7 +53,7 @@
 
 
 /*body { background: url(http://images.apple.com/ios/ios7/design/images/design_layers.jpg) 50px center no-repeat; background-size: 300px 300px;}*/
-body { background: url("../images/body.jpg"); font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;}
+body { background: url("../images/body.jpg"); font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif; min-width: 960px;}
 
 header a.button { position: fixed; right: 10px; top: 10px;}
 
@@ -72,3 +81,4 @@ header a.button { position: fixed; right: 10px; top: 10px;}
 	color: #fff;
 	overflow: hidden;
 }
+

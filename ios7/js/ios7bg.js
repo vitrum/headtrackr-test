@@ -17,6 +17,12 @@ $(document).ready(function () {
 	debugOverlay.style.top = '0px';
 	debugOverlay.style.zIndex = '100002';
 	debugOverlay.style.display = 'none';
+	var imageLoadList = [
+			 "images/bg001.jpg"
+			,"images/bg002.jpg"
+			,"images/bg003.jpg"
+			,"images/bg004.jpg"
+		]
 	
 	// add some custom messaging
 	
@@ -106,4 +112,42 @@ $(document).ready(function () {
 			BgimgSize['height'] = image.height();
 		});
 	}
+	if (!Array.prototype.indexOf) { 
+	    Array.prototype.indexOf = function(obj, start) {
+	         for (var i = (start || 0), j = this.length; i < j; i++) {
+	             if (this[i] === obj) { return i; }
+	         }
+	         return -1;
+	    }
+	}
+
+
+	function phoneBgSwitch(i) {
+		var imageBox = jQuery(".screen")
+		, imageName = jQuery(".screen").css('background-image');
+        imageName = imageName.replace('url(','').replace(')','');
+        var arr = imageName.substring(1).split("/");
+        imageName = "images/"+arr.pop();
+        var imageIndex = imageLoadList.indexOf(imageName);
+        console.log(imageName +"\n"+ imageLoadList.indexOf(imageName) +"\n"+ imageLoadList);
+		if(i===0){
+			imageIndex = Math.max(Math.min((imageLoadList.length - 1),(imageIndex-1)),0);
+			
+		}else{
+			imageIndex = Math.max(Math.min((imageLoadList.length - 1),(imageIndex+1)),0);
+		}
+		imageName = "url(" +imageLoadList[Number(imageIndex)] + ")";
+		console.log("new index:" + imageLoadList[Number(imageIndex)]);
+		jQuery(".screen").css('background-image',imageName);
+
+	}
+
+	jQuery('.navbar a').live('click', function(event) {
+		var $this = $(this);
+		if($this.hasClass("next")){
+			phoneBgSwitch(1);
+		}else{
+			phoneBgSwitch(0)
+		}
+	});
 });
