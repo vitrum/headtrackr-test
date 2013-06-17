@@ -129,15 +129,32 @@ $(document).ready(function () {
         var arr = imageName.substring(1).split("/");
         imageName = "images/"+arr.pop();
         var imageIndex = imageLoadList.indexOf(imageName);
-        console.log(imageName +"\n"+ imageLoadList.indexOf(imageName) +"\n"+ imageLoadList);
+        //console.log(imageName +"\n"+ imageLoadList.indexOf(imageName) +"\n"+ imageLoadList);
 		if(i===0){
 			imageIndex = Math.max(Math.min((imageLoadList.length - 1),(imageIndex-1)),0);
 			
 		}else{
 			imageIndex = Math.max(Math.min((imageLoadList.length - 1),(imageIndex+1)),0);
 		}
+		//console.log(Number(imageIndex));
+		switch(Number(imageIndex)){
+			case 0:
+			{
+				jQuery('.navbar a.prev').hide();
+			}
+			break;
+			case (imageLoadList.length - 1):
+			{
+				jQuery('.navbar a.next').hide();
+			}
+			break;
+			default:
+			{
+				jQuery('.navbar a').show();
+			}
+		}
 		imageName = "url(" +imageLoadList[Number(imageIndex)] + ")";
-		console.log("new index:" + imageLoadList[Number(imageIndex)]);
+		//console.log("new index:" + imageLoadList[Number(imageIndex)]);
 		jQuery(".screen").css('background-image',imageName);
 
 	}

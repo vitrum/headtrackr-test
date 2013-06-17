@@ -42,7 +42,7 @@
    -webkit-transition: opacity .25s ease-in-out;
    }
 .navbar a:hover , .navbar a.hover { opacity: 0.9;}
-.navbar a.prev { background: url("../images/paddle_prev.png");}
+.navbar a.prev { background: url("../images/paddle_prev.png"); display: none;}
 .navbar a.next { background: url("../images/paddle_next.png"); float: right;}
 #load_images { width: 10px; height: 10px; position: absolute; left: -9999em; overflow: hidden;}
 .debuginfo { position: fixed; top: 100px; padding: 8px; color: #3c3c3c; width: 320px;right: 10px; background-color: #e3e3e3; height: 240px;-webkit-border-radius: 5px;
