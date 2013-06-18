@@ -202,7 +202,7 @@ $(document).ready(function () {
 			y = parseInt(y + vy / 50);
 			x = parseInt(x + vx / 50);
 			
-			boundingBoxCheck();
+			//boundingBoxCheck();
 			var newPositionX = -((Number(BgimgSize['width'])/2-160) - (Number(x) - 150))/2 ,
 			newPositionY =  -((Number(BgimgSize['height'])/2-220) - (Number(y) - 100))/2 ;
 			bgBox.css("background-position",newPositionX+"px "+ newPositionY+"px")
