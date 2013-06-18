@@ -2,6 +2,7 @@
   Sets the style of the image slider wrapper <div> to be centered horizontally and vertically.
   It also sets its default dimensions and the overflowing hidden (to fix the IE image positioning bug).
 */
+ol li {padding: 0;list-style:none;}
 #spinner {
   position:absolute;
 	left:50%;
@@ -78,7 +79,7 @@ header a.button { position: fixed; right: 10px; top: 10px;}
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	position: fixed;
-	position: fixed; bottom: 10px; right: 10px;
+	bottom: 10px; right: 10px;
 	padding-left: 12px;
 	height: 32px;
 }
@@ -92,4 +93,13 @@ header a.button { position: fixed; right: 10px; top: 10px;}
 	color: #fff;
 	overflow: hidden;
 }
-
+@media only screen and (min-width: 300px) and (max-width: 640px) {
+	header , .tip , .navbar ,.hireme {display: none;}
+	.about { width: 260px; margin: 10px;}
+	.hireme { position: relative; width: 200px; margin: 10px;}
+	.debuginfo {display: none;}
+	.thephone { width: 320px; height: 600px; margin: 0; padding: 0; background-image: none;} 
+	#layout { margin: 0; padding: 0; width: 320px; height: 568px; overflow: hidden;}
+	.navbar {}
+	body { min-width: 300px;}
+}
