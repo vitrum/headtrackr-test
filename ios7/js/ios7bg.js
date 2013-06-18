@@ -202,13 +202,15 @@ $(document).ready(function () {
 			y = parseInt(y + vy / 50);
 			x = parseInt(x + vx / 50);
 			
-			//boundingBoxCheck();
+			boundingBoxCheck();
 			var newPositionX = -((Number(BgimgSize['width'])/2-160) - (Number(x) - 150))/2 ,
 			newPositionY =  -((Number(BgimgSize['height'])/2-220) - (Number(y) - 100))/2 ;
+			newPositionX = Math.max(Math.min(0,newPositionX),-119);
+			newPositionY = Math.max(Math.min(0,newPositionY),-200);
 			bgBox.css("background-position",newPositionX+"px "+ newPositionY+"px")
 			//sphere.style.top = y + "px";
 			//sphere.style.left = x + "px";
 			
-		}, 25);
+		}, 50);
 	}
 });
