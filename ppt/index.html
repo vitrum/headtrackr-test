@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>项目前期草案</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>一个平台</h1>
+					<h3>项目草案 兼 会议既要</h3>
+					<p>
+						
+						<small>第零界第三次全会.2013/7/23</small>
+					</p>
+					<p>
+						<small>参会嘉宾：万总，周董，挺哥；记录员:阿刚；</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>大会议题</h2>
+					<p>
+						本次会议召开的主要目的，是在前期头脑风暴基础上，确定项目方向。使团队成员对项目的选择达成共识。本次会议由个部门主要负责人参加，讨论热烈，气氛火爆。在多次跑题求种之后，小伙伴们最终达成以下共识。
+					</p>
+
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>团队目标是做什么？</h2>
+						<p>
+							既然已经有前期资金，我们可以专注平台开发。
+						</p>
+						<p class="fragment">平台的主要目标：
+						</p>
+						<ol>
+							<li class="fragment">平台提供对微信、微博等社交的支持</li>
+							<li class="fragment">平台支持第三方团队插件定制、项目接包、流程管理</li>
+							<li class="fragment">平台支持社交应用内电商及支付，既O2O业态</li>
+							<li class="fragment">平台提供消费者行为大数据分析</li>
+						</ol>
+					</section>
+					<section data-state="blackout">
+						<h2>社交支持</h2>
+						<p class="fragment shrink">整合微信微博等帐号管理</p>
+						<p class="fragment shrink">根据对话智能分组粉丝</p>
+						<p class="fragment shrink">粉丝管理跨微信微博平台</p>
+						<p class="fragment shrink">精确细分粉丝状态</p>
+					</section>
+					<section>
+						<h2>插件分包</h2>
+						<p class="fragment">商家提出插件需求</p>
+						<p class="fragment">开发者竞标、开发、结帐</p>
+						<p class="fragment">提供插件开发管理、云服务等</p>
+						<p class="fragment">提供插件运营报表，转售插件等</p>
+					</section>
+					<section data-state="blackout">
+						<h2>社区微电商</h2>
+						<p class="fragment roll-in">商家导入其他电商平台产品</p>
+						<p class="fragment roll-in">本地化、社区化CRM客户管理平台</p>
+						<p class="fragment roll-in">基于用户精确细分的推广功能</p>
+					</section>
+					<section data-transition="zoom">
+						<h2>消费者分析</h2>
+						<p class="fragment roll-in">细分用户性别、年龄、消费能力</p>
+						<p class="fragment roll-in">社区消费行为趋势分析</p>
+						<p class="fragment roll-in">数据提供策略公司市调，不直接出售给商家</p>
+					</section>
+				</section>
+
+				<section data-state="soothe">
+					<h2>执行计划</h2>
+					<ol>
+						<li class="fragment fade-in">先做个插件---3周</li>
+						<li class="fragment fade-in">再搞平台原型---2周</li>
+						<li class="fragment fade-in">平台模块式开发---2～3月</li>
+						<li class="fragment fade-in">推广融资---未知</li>
+						<li class="fragment fade-in">数钱买别墅---尽快</li>
+					</ol>
+				</section>
+				<section data-state="alert">
+					<h1>THE END</h1>
+					<h3>未尽事宜，请大家友好协商<br /><br />谢谢绝打脸</h3>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
